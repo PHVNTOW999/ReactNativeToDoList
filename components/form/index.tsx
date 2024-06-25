@@ -20,7 +20,12 @@ const Form = observer(() => {
 
     const addTask = (title, desc) => {
         if(title) {
-            taskStore.addTask({title: title, desc: desc});
+            const payload: any = {
+                title: title,
+                desc: desc,
+                status: false
+            }
+            taskStore.addTask(payload);
             setDesc("");
             setTitle("");
         }

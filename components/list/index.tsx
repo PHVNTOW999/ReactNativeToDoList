@@ -11,12 +11,12 @@ const TaskList = observer(() => {
             {
                 taskStore.taskList.length ?
                     (
-                        <ScrollView h="$80" w="$100">
-                            <VStack flex='1'>
+                        <ScrollView h="$100" w="$100">
+                            <VStack space='xs' flex='1' reversed>
                                 {
-                                    taskStore.taskList.map((task, i) => {
+                                    taskStore.taskList.map((task, index) => {
                                         return (
-                                            <Task task={task} key={i} />
+                                            <Task task={task} index={index} key={index} />
                                         )
                                     })
                                 }

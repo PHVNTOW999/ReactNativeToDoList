@@ -36,7 +36,8 @@ class TaskStore {
         return this.taskList.push(payload)
     }
 
-    changeTask = (i, payload) => {
+    changeTask = (payload, i) => {
+        payload.status = !payload.status
         return this.taskList[i] = payload
     }
 

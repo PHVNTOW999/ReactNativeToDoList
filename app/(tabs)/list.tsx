@@ -1,12 +1,10 @@
-import {View, Text} from "react-native";
-import Counter from "@/components/counter";
+import List from "@/components/list";
 
 const ListScreen = (() => {
     return (
-        <View>
-            <Text>GGG</Text>
-            <Counter />
-        </View>
+        <>
+            <List />
+        </>
     );
 });
 
