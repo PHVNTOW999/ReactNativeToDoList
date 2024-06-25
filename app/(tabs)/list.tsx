@@ -1,9 +1,13 @@
 import {View, Text} from "react-native";
+import Counter from "@/components/counter";
 
-export default function ListScreen() {
+const ListScreen = (() => {
     return (
         <View>
             <Text>GGG</Text>
+            <Counter />
         </View>
     );
-}
+});
+
+export default ListScreen
