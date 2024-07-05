@@ -21,6 +21,7 @@ const Form = observer(() => {
     const addTask = (title, desc) => {
         if(title) {
             const payload: any = {
+                id: taskStore.taskList.length + 1,
                 title: title,
                 desc: desc,
                 status: false

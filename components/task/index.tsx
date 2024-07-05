@@ -6,21 +6,21 @@ import {
     CheckboxIndicator,
     CheckboxIcon,
     CheckboxLabel,
-    CheckIcon
+    CheckIcon, Box, Button, ButtonText, Fab, FabLabel, Divider
 } from "@gluestack-ui/themed";
 import {observer} from "mobx-react-lite";
 import taskStore from "@/store";
+import React from "react";
 
-const Task = observer(({task}: any, {index}: number) => {
+const Task = observer(({task}: any) => {
     return (
         <>
-            <Card size="md" variant="elevated" m="$3">
-                <Heading mb="$1" size="md"  textAlign='center'>
+            <Card size="md" variant="filled" m="$2">
+                <Text>{task.id}</Text>
+                <Heading mb="$1" size="md">
                     <Checkbox
                         size="lg"
-                        onClick={() => {
-                            taskStore.changeTask(task, index)
-                        }}
+                        onClick={() => {taskStore.changeTask(task)}}
                         defaultIsChecked={task.status}
                     >
                         <CheckboxIndicator mr="$2">
@@ -36,15 +36,27 @@ const Task = observer(({task}: any, {index}: number) => {
                             }
                         </CheckboxLabel>
                     </Checkbox>
-                    <Text
-                        textAlign='center'
-                        w='$100%'
-                        isTruncated
-                        strikeThrough={!!task.status}>
-                        {task.title}
-                    </Text>
+                    <Fab
+                        size="md"
+                        placement="top right"
+                    >
+                        <FabLabel onClick={() => {taskStore.removeTask(task.id)}}>
+                            Delete
+                        </FabLabel>
+                    </Fab>
+                    <Box w='100%' textAlign='center'>
+                        <Text
+                            bold
+                            w='100%'
+                            textAlign='center'
+                            isTruncated
+                            strikeThrough={!!task.status}>
+                            {task.title}
+                        </Text>
+                    </Box>
                 </Heading>
-                <Text size="sm" isTruncated>{task.desc}</Text>
+                <Divider my="$1"/>
+                <Text textAlign='center' size="sm" isTruncated>{task.desc}</Text>
             </Card>
         </>
     )

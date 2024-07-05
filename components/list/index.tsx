@@ -1,7 +1,7 @@
 import {observer} from "mobx-react-lite";
-import {Card, Center, Heading, ScrollView, VStack} from "@gluestack-ui/themed";
+import {Box, Card, Center, Heading, ScrollView, VStack} from "@gluestack-ui/themed";
 import taskStore from "@/store";
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
 import React from "react";
 import Task from "@/components/task";
 
@@ -16,7 +16,7 @@ const TaskList = observer(() => {
                                 {
                                     taskStore.taskList.map((task, index) => {
                                         return (
-                                            <Task task={task} index={index} key={index} />
+                                            <Task task={task} key={index}/>
                                         )
                                     })
                                 }
@@ -29,7 +29,6 @@ const TaskList = observer(() => {
                         </Center>
                     )
             }
-
         </>
     )
 })
